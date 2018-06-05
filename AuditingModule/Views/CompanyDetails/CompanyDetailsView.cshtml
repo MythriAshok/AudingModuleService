@@ -1,0 +1,237 @@
+﻿
+@{
+    ViewBag.Title = "CompanyDetailsView";
+}
+
+<!DOCTYPE html>
+<link href="~/css/StyleSheet1.css" rel="stylesheet" />
+<style type="text/css">
+    .longSubmitButton{
+        width:65px;
+        background-color:springgreen;
+    }
+    .longButtonCancel {
+        width: 100px;
+        background-color: red;
+    }
+</style>
+<html>
+<body>
+
+    <h2>CompanyDetailsView</h2>
+    <table class="table">
+        <tr>
+            <td align="center" valign="baseline">
+                @Html.Label("*Sub Client Code", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Sub Client Code")
+            </td>
+            <td align="center" valign="baseline">
+                @Html.Label("*Sub Client Name", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Sub Client Name")
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="baseline">
+                @Html.Label("*Business Unit", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Business Unit")
+            </td>
+            <td align="center" valign="baseline">
+                @Html.Label("*Business Domain", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.DropDownList("--Select--", new List<SelectListItem>
+               {
+               new SelectListItem{Text= "--Select Business Domain--", Value="0"},
+               new SelectListItem{Text= "IT", Value="1"},
+               new SelectListItem{Text= "ITES", Value="2"},
+               new SelectListItem{Text= "NON IT", Value="3"},
+               }
+               )
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="baseline">
+                @Html.Label("*URL", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("URL", new { @Value="https://www"})
+            </td>
+            <td align="center" valign="baseline">
+                @Html.Label("*Email", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Email")
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="baseline">
+                @Html.Label("*Is PO Client", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.DropDownList("--Select--", new List<SelectListItem>
+               {
+               new SelectListItem{Text= "--Select--", Value="0"},
+               new SelectListItem{Text= "Yes", Value="1"},
+               new SelectListItem{Text= "No", Value="2"},
+               }
+               )
+            </td>
+            <td align="center" valign="baseline">
+                @Html.Label("*Status", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.DropDownList("--Select Status--", new List<SelectListItem>
+               {
+               new SelectListItem{Text= "--Select Status--", Value="0"},
+               new SelectListItem{Text= "Active", Value="1"},
+               new SelectListItem{Text= "Inactive", Value="2"},
+               }
+               )
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align="center" valign="baseline">
+                @Html.Label("*Client Category", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.DropDownList("--Select Client Category--", new List<SelectListItem>
+               {
+               new SelectListItem{Text= "--Select Client Category", Value="0"},
+               new SelectListItem{Text= "SOW", Value="1"},
+               new SelectListItem{Text= "WO", Value="2"},
+               new SelectListItem{Text= "PO", Value="3"},
+               new SelectListItem{Text= "N/A", Value="4"},
+               }
+               )
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="baseline">
+                @Html.Label("Alert Email Leave", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Alert Email Leave")
+            </td>
+            <td align="center" valign="baseline">
+                @Html.Label("Alert Email Onboarding", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Alert Email Onboarding")
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="baseline">
+                @Html.Label("Alert Email IT Declaration", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Alert Email IT Declaration")
+            </td>
+            <td align="center" valign="baseline">
+                @Html.Label("Short Name", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Short Name")
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="baseline">
+                @Html.Label("Reimbursement Clain TAT", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Reimbursement Clain TAT" , new { @Value= "0"})
+            </td>
+            <td align="center" valign="baseline">
+                @Html.Label("Alert Required", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.CheckBox("Alert Required")
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="baseline">
+                @Html.Label("Sub Client Logo", htmlAttributes: new { @class = "control-label col-md-3" })
+                @*@using (Html.BeginForm(FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                < input type = "file" name = "ImageData" id = "ImageData" onchange = "fileCheck(this);" />}*@
+                <img id="Img_SubClientLogo" src="~/Images/noimage.gif" alt="Sub Client Logo" align="left" style="border-color:LightSteelBlue;border-width:4px;border-style:Double;height:50px;width:80px;">
+                <br />
+                <br />
+                <br />
+                @Html.Label("Display deputed company name in payslip", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.CheckBox("Display deputed company name in payslip")
+                <br />
+                <br />
+                <br />
+                <input type="submit" value="Upload File" disabled="disabled" />
+
+            </td>
+            <td align="center" valign="baseline">
+                @Html.Label("Appraisal Cycle", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.DropDownList("--Select Appraisal Cycle--", new List<SelectListItem>
+               {
+               new SelectListItem{Text= "--Select Appraisal Cycle", Value="0"},
+               new SelectListItem{Text= "Financial Cycle", Value="1"},
+               new SelectListItem{Text= "Joining Date", Value="2"},
+               }
+               )
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td align="center" valign="baseline">
+                @Html.Label("*Address 1", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Address 1")
+            </td>
+            <td align="center" valign="baseline">
+                @Html.Label("Address 2", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Address 2")
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="baseline">
+                @Html.Label("Address 3", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Address 3")
+            </td>
+            <td align="center" valign="baseline">
+                @Html.Label("*City", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("City")
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="baseline">
+                @Html.Label("*State", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("State")
+            </td>
+            <td align="center" valign="baseline">
+                @Html.Label("*Pincode", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Pincode")
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="baseline">
+                @Html.Label("Phone", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Phone")
+            </td>
+            <td align="center" valign="baseline">
+                @Html.Label("Mobile", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Mobile")
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="baseline">
+                @Html.Label("Fax", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.TextBox("Fax")
+            </td>
+            <td align="center" valign="baseline">
+                @Html.Label("Manager Employee Leave on behalf of Employee", htmlAttributes: new { @class = "control-label col-md-5" })
+                @Html.CheckBox("Manager Employee Leave on behalf of Employee")
+            </td>
+            </tr>
+        <tr>
+            <td align="center" valign="baseline" colspan="5">
+                <h2>Remarks</h2>
+                @*@Html.Label("Remarks", htmlAttributes: new { @class = "control-label col-md-6" })*@
+                @*@Html.TextArea("Remarks", htmlAttributes: new { @class = "required", @cols = 500, @rows = 4 })*@
+                @Html.TextArea("Remarks", htmlAttributes: new { @class = "form-control required", style = "max-width:65% !important;"})
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="baseline" colspan="2">
+                <input type="submit" id="btnSave" name="Save" value="Save" class="longSubmitButton" />
+                <input type="submit" id="btnCancel" name="Cancel" value="Cancel" class="btn-danger" />
+               
+                <input type="submit" id="btnReset" name="Reset" value="Reset Payroll TAT" class="btn-group-lg" disabled="disabled" />
+            </td>
+        </tr>
+           
+            
+    </table>
+    
+      
+   
+
+</body>
+</html>
