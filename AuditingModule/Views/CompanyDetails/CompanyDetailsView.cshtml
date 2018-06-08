@@ -1,15 +1,17 @@
 ﻿
 @{
     ViewBag.Title = "CompanyDetailsView";
+    Layout = null;
 }
 
 <!DOCTYPE html>
 <link href="~/css/StyleSheet1.css" rel="stylesheet" />
 <style type="text/css">
-    .longSubmitButton{
-        width:65px;
-        background-color:springgreen;
+    .longSubmitButton {
+        width: 65px;
+        background-color: springgreen;
     }
+
     .longButtonCancel {
         width: 100px;
         background-color: red;
@@ -50,7 +52,7 @@
         <tr>
             <td align="center" valign="baseline">
                 @Html.Label("*URL", htmlAttributes: new { @class = "control-label col-md-5" })
-                @Html.TextBox("URL", new { @Value="https://www"})
+                @Html.TextBox("URL", new { @Value = "https://www" })
             </td>
             <td align="center" valign="baseline">
                 @Html.Label("*Email", htmlAttributes: new { @class = "control-label col-md-5" })
@@ -117,7 +119,7 @@
         <tr>
             <td align="center" valign="baseline">
                 @Html.Label("Reimbursement Clain TAT", htmlAttributes: new { @class = "control-label col-md-5" })
-                @Html.TextBox("Reimbursement Clain TAT" , new { @Value= "0"})
+                @Html.TextBox("Reimbursement Clain TAT", new { @Value = "0" })
             </td>
             <td align="center" valign="baseline">
                 @Html.Label("Alert Required", htmlAttributes: new { @class = "control-label col-md-5" })
@@ -128,8 +130,8 @@
             <td align="center" valign="baseline">
                 @Html.Label("Sub Client Logo", htmlAttributes: new { @class = "control-label col-md-3" })
                 @*@using (Html.BeginForm(FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                < input type = "file" name = "ImageData" id = "ImageData" onchange = "fileCheck(this);" />}*@
+                    {
+                    < input type = "file" name = "ImageData" id = "ImageData" onchange = "fileCheck(this);" />}*@
                 <img id="Img_SubClientLogo" src="~/Images/noimage.gif" alt="Sub Client Logo" align="left" style="border-color:LightSteelBlue;border-width:4px;border-style:Double;height:50px;width:80px;">
                 <br />
                 <br />
@@ -142,21 +144,26 @@
                 <input type="submit" value="Upload File" disabled="disabled" />
 
             </td>
+            @*<td align="center" valign="baseline">
+                    @Html.Label("Appraisal Cycle", htmlAttributes: new { @class = "control-label col-md-5" })
+                    @Html.DropDownList("--Select Appraisal Cycle--", new List<SelectListItem>
+                   {
+                   new SelectListItem{Text= "--Select Appraisal Cycle", Value="0"},
+                   new SelectListItem{Text= "Financial Cycle", Value="1"},
+                   new SelectListItem{Text= "Joining Date", Value="2"},
+                   }
+                   )
+                </td>*@
             <td align="center" valign="baseline">
                 @Html.Label("Appraisal Cycle", htmlAttributes: new { @class = "control-label col-md-5" })
-                @Html.DropDownList("--Select Appraisal Cycle--", new List<SelectListItem>
+                @Html.ListBox("--Select Appraisal Cycle--", new List<SelectListItem>
                {
                new SelectListItem{Text= "--Select Appraisal Cycle", Value="0"},
                new SelectListItem{Text= "Financial Cycle", Value="1"},
                new SelectListItem{Text= "Joining Date", Value="2"},
-               }
-               )
+               } )
             </td>
         </tr>
-
-
-
-
         <tr>
             <td align="center" valign="baseline">
                 @Html.Label("*Address 1", htmlAttributes: new { @class = "control-label col-md-5" })
@@ -206,32 +213,30 @@
                 @Html.Label("Manager Employee Leave on behalf of Employee", htmlAttributes: new { @class = "control-label col-md-5" })
                 @Html.CheckBox("Manager Employee Leave on behalf of Employee")
             </td>
-            </tr>
+        </tr>
         <tr>
             <td align="center" valign="baseline" colspan="5">
                 <h2>Remarks</h2>
                 @*@Html.Label("Remarks", htmlAttributes: new { @class = "control-label col-md-6" })*@
                 @*@Html.TextArea("Remarks", htmlAttributes: new { @class = "required", @cols = 500, @rows = 4 })*@
-                @Html.TextArea("Remarks", htmlAttributes: new { @class = "form-control required", style = "max-width:65% !important;"})
+                @Html.TextArea("Remarks", htmlAttributes: new { @class = "form-control required", style = "max-width:65% !important;" })
             </td>
-            <td>
-
-            </td>
+            <td></td>
         </tr>
         <tr>
             <td align="center" valign="baseline" colspan="2">
                 <input type="submit" id="btnSave" name="Save" value="Save" class="longSubmitButton" />
                 <input type="submit" id="btnCancel" name="Cancel" value="Cancel" class="btn-danger" />
-               
+
                 <input type="submit" id="btnReset" name="Reset" value="Reset Payroll TAT" class="btn-group-lg" disabled="disabled" />
             </td>
         </tr>
-           
-            
+
+
     </table>
-    
-      
-   
+
+
+
 
 </body>
 </html>
