@@ -18,5 +18,10 @@ namespace AuditingModule.Controllers
         {
             return View();
         }
+
+        public ActionResult OrgDetails()
+        {
+            return View();
+        }
     }
 }
